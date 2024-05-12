@@ -1,6 +1,8 @@
 import React from 'react';
 
 export default function Alumniform() {
+  
+
   return (
     <div className="flex justify-center items-center h-screen overflow-hidden">
       <div className="bg-gray-600 p-8 rounded-lg shadow-lg">
