@@ -8,10 +8,13 @@ import Register from './components/Register';
 import Login from './components/Login'
 import Alumniform from './components/Alumniform';
 import Admin from './components/Admin';
+import Alumnis  from './components/Alumnis';
+import Events from './components/Events';
 
 function App() {
   const [loggedin, setLoggedin]= useState(false);
   const [adminloggedin, setAdminloggedin] = useState(false);
+  const [userId, setUserId] = useState(null);
 
   return (
     <Router>
@@ -21,12 +24,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login"  element={<Login setLoggedin={setLoggedin} setAdminloggedin={setAdminloggedin}/>}/>
+          <Route path="/login"  element={<Login setLoggedin={setLoggedin} setAdminloggedin={setAdminloggedin} setUserId={setUserId}/>}/>
+          <Route path="/alumni" element={<Alumnis/>}/>
+          <Route path="/events" element={<Events/>}/>
         </Routes>
         }
         
-        {loggedin && <Alumniform/>} 
-        {adminloggedin && <Admin/>}  
+        {loggedin && <Alumniform userId={userId} setLoggedin={setLoggedin}/>} 
+        {adminloggedin && <Admin setAdminloggedin={setAdminloggedin}/>}  
       </div>
     </Router>
   );

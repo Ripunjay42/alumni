@@ -1,0 +1,36 @@
+/* Example Tailwind CSS styles for AlumniDetailsDisplay component */
+
+/* Center the content */
+.alumni-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card styling */
+.alumni-details-card {
+    background-color: #444647;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Headline styling */
+.alumni-details-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #f1f1f1;
+}
+
+/* Details styling */
+.alumni-details-item {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+/* Strong tag styling for labels */
+.alumni-details-label {
+    font-weight: bold;
+}
