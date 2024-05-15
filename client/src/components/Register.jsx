@@ -20,7 +20,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen style={{ marginTop: '-100px' }">
+    <div className="flex justify-center items-center h-screen style={{ marginTop: '-100px' } ">
       <div className="bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 p-11 px-17 rounded-lg shadow-lg">
         {reg.signup==="registered" && <p style={{color : 'white'}}>registered successfully</p>}
         <h2 className="text-2xl font-bold mb-4">Register</h2>

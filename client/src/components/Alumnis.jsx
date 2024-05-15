@@ -48,7 +48,7 @@ const AlumniList = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen overflow-hidden ">
+    <div className="flex justify-center items-center h-screen overflow-hidden  ">
       <div className="container mx-auto p-4 relative max-w-4xl">
         <h1 className="text-4xl font-bold mb-8 text-center text-green-400">Our Alumni's</h1>
         <div className="flex items-center relative">

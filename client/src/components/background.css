@@ -1,0 +1,110 @@
+/* dark-theme.css */
+
+/* General Styles */
+body {
+    background: linear-gradient(to bottom right, #1a202c, #2d3748);
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  a {
+    color: #63b3ed;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #4299e1;
+  }
+  
+  /* Section Styles */
+  section {
+    background: rgba(45, 55, 72, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading Styles */
+  h1, h2, h3 {
+    color: #68d391;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Paragraph Styles */
+  p {
+    color: #a0aec0;
+    margin-bottom: 1rem;
+  }
+  
+  /* Button Styles */
+  button {
+    background: linear-gradient(to right, #4c51bf, #9f7aea);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: linear-gradient(to right, #434190, #805ad5);
+  }
+  
+  /* Input and Textarea Styles */
+  input, textarea {
+    background: #2d3748;
+    color: #e2e8f0;
+    border: 1px solid #4a5568;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: #a0aec0;
+  }
+  
+  /* Card Styles */
+  .card {
+    background: #2d3748;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Responsive Grid Styles */
+  .grid {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 640px) {
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  

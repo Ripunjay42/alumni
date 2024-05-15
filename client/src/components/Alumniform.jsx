@@ -63,7 +63,7 @@ export default function Alumniform({userId, setLoggedin}) {
 
 
   return (
-    <div className="flex justify-center items-center h-screen overflow-hidden">
+    <div className="flex justify-center items-center h-screen overflow-hidden ">
     {submissionSuccess ? (
     <Alumnidetails userId={userId} setLoggedin={setLoggedin} setSubmissionSuccess={setSubmissionSuccess}/>) : 
     (

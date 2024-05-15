@@ -35,7 +35,7 @@ export default function AlumniDetailsDisplay({ userId, setLoggedin, setSubmissio
     };
 
     return (
-      <div className="alumni-details-container overflow-hidden relative flex justify-center items-center h-screen">
+      <div className="alumni-details-container overflow-hidden relative flex justify-center items-center h-screen ">
         <div className="alumni-details-card bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg shadow-xl p-8 text-white z-10">
           <h2 className="alumni-details-heading text-3xl font-extrabold text-center tracking-wide">
             Your Alumni Details

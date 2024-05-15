@@ -35,7 +35,7 @@ const LoginForm = ({setLoggedin, setAdminloggedin, setUserId}) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen style={{ marginTop: '-100px'}">
+    <div className="flex justify-center items-center h-screen style={{ marginTop: '-100px'} ">
       <div className="flex space-x-6">
         {/* User Login Form */}
         <form onSubmit={handleUserLogin} className="bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 p-11 px-10 rounded-lg shadow-lg">

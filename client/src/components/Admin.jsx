@@ -40,7 +40,7 @@ const handleManageEvent = () => {
 }
 
   return (
-   <div className="flex justify-center items-center h-screen overflow-hidden">
+   <div className="flex justify-center items-center h-screen overflow-hidden ">
     {isevent ? (<Addevent setIsevent={setIsEvent} />) : (
     <div className="container mx-auto">
       <h1 className="text-5xl text-center  text-white font-bold mb-4">Alumni's</h1><br/>

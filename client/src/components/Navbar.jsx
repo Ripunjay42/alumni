@@ -8,7 +8,7 @@ const Navbar = () => {
   document.body.style.overflow = 'hidden';
   
   return (
-    <nav className="bg-transparent border-gray-200 dark:bg-transparent  overflow-hidden ">
+    <nav className="bg-transparent border-gray-200 dark:bg-transparent   overflow-hidden ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <img src={logo} className="h-14 w-14" alt="alumni" />
         
