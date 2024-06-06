@@ -10,7 +10,7 @@ const AlumniList = () => {
   useEffect(() => {
     const fetchAlumniData = async () => {
       try {
-        const response = await axios.get('https://alumni-server-sigma.vercel.app/api/alumni');
+        const response = await axios.get('http://localhost:3001/api/alumni');
         setAlumniData(response.data);
       } catch (error) {
         console.error('Error fetching alumni data:', error);
@@ -23,7 +23,7 @@ const AlumniList = () => {
   const handleViewProfile = async (userId) => {
     console.log('Viewing profile:', userId);
     try {
-      const response = await axios.get('https://alumni-server-sigma.vercel.app/api/alumnidetails/${userId}');
+      const response = await axios.get(`http://localhost:3001/api/alumnidetails/${userId}`);
       if (response.data.exists) {
         setSelectedAlumni(userId);
         setAlumniDetails(response.data.details);

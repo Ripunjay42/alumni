@@ -9,7 +9,7 @@ const RegisterForm = () => {
   const registerUser = async (event) => {
     event.preventDefault(); 
     try {
-      const response = await axios.post('https://alumni-server-sigma.vercel.app/register', user);
+      const response = await axios.post('http://localhost:3001/register', user);
       console.log('Registration successful:', response.data);
       setReg({signup:"registered"});
       console.log(reg); 

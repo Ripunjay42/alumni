@@ -9,7 +9,7 @@ const Admin = ({setAdminloggedin}) => {
 
   const fetchAlumniData = async () => {
     try {
-      const response = await axios.get('https://alumni-server-sigma.vercel.app/api/alumni');
+      const response = await axios.get('http://localhost:3001/api/alumni');
       setAlumniData(response.data);
     } catch (error) {
       console.error('Error fetching alumni data:', error);
@@ -18,7 +18,7 @@ const Admin = ({setAdminloggedin}) => {
 
   const deleteAlumni = async (id) => {
     try {
-      await axios.delete(`https://alumni-server-sigma.vercel.app/api/alumni/${id}`);
+      await axios.delete(`http://localhost:3001/api/alumni/${id}`);
       fetchAlumniData();
     } catch (error) {
       console.error('Error deleting alumni:', error);
