@@ -9,10 +9,10 @@ app.use(cors());
 
 
 const db = mysql.createConnection({
-  host: 'process.env.DB_HOST',
-  user: 'proces.env.DB_USER',
-  password: 'process.env.DB_PASS',
-  database: 'process.env.DB_NAME',
+  host: 'process.env.MYSQL_ADDON_HOST',
+  user: 'proces.env.MYSQL_ADDON_USER',
+  password: 'process.env.MYSQL_ADDON_PASSWORD',
+  database: 'process.env.MYSQL_ADDON_DB',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
