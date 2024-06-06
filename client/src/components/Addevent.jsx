@@ -24,7 +24,7 @@ const Addevent = ({ setIsevent }) => {
     console.log('Event data:', eventData);
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/events', eventData);
+      const response = await axios.post('https://alumni-server-sigma.vercel.app/api/events', eventData);
       console.log('Event added:', response.data);
       setAdded(true);
     } catch (error) {

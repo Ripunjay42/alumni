@@ -8,7 +8,7 @@ const Events = () => {
   useEffect(() => {
     const fetchevents = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/events');
+        const response = await axios.get('https://alumni-server-sigma.vercel.app/api/events');
         setEvents(response.data);
       } catch (error) {
         console.error('Error fetching alumni data:', error);

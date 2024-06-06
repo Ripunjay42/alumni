@@ -11,7 +11,7 @@ export default function AlumniDetailsDisplay({ userId, setLoggedin, setSubmissio
 
     const fetchAlumniDetails = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/api/alumnidetails/${userId}`);
+            const response = await axios.get(`https://alumni-server-sigma.vercel.app/api/alumnidetails/${userId}`);
             if (response.data.exists) {
                 setAlumniDetails(response.data.details);
             }
@@ -26,7 +26,7 @@ export default function AlumniDetailsDisplay({ userId, setLoggedin, setSubmissio
 
     const handleEdit = async () => {
         try {
-            await axios.delete(`http://localhost:3001/api/alumnidetails/${userId}`);
+            await axios.delete(`https://alumni-server-sigma.vercel.app/api/alumnidetails/${userId}`);
             setSubmissionSuccess(false);
             setAlumniDetails(null);
         } catch (error) {
