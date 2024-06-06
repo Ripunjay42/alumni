@@ -70,7 +70,7 @@ app.post('/login/user', (req, res) => {
 // Admin login endpoint
 app.post('/login/admin', (req, res) => {
   const { admin_id, password } = req.body;
-  const query = `SELECT * FROM admin WHERE Admin_id = '${admin_id}' AND password = '${password}'`;
+  const query = `SELECT * FROM ADMIN WHERE Admin_id = '${admin_id}' AND password = '${password}'`;
 
   db.query(query, (err, result) => {
     if (err) throw err;
@@ -105,7 +105,7 @@ app.post('/api/alumni', (req, res) => {
 app.get('/api/alumni/:user_id', (req, res) => {
   const user_id = req.params.user_id;
 
-  const sql = `SELECT * FROM alumni WHERE user_id = ?`;
+  const sql = `SELECT * FROM ALUMNI WHERE user_id = ?`;
   db.query(sql, [user_id], (err, result) => {
       if (err) {
           console.error(err);
@@ -161,7 +161,7 @@ app.delete('/api/alumnidetails/:user_id', (req, res) => {
 
 
 app.get('/api/alumni', (req, res) => {
-  const sql = 'SELECT * FROM alumni';
+  const sql = 'SELECT * FROM ALUMNI';
   db.query(sql, (err, result) => {
     if (err) {
       console.error('Error fetching alumni data:', err);
@@ -175,7 +175,7 @@ app.get('/api/alumni', (req, res) => {
 
 app.delete('/api/alumni/:id', (req, res) => {
   const { id } = req.params;
-  const sql = 'DELETE FROM alumni WHERE id = ?';
+  const sql = 'DELETE FROM ALUMNI WHERE id = ?';
   db.query(sql, id, (err, result) => {
     if (err) {
       console.error('Error deleting alumni:', err);
