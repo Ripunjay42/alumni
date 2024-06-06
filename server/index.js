@@ -9,10 +9,10 @@ app.use(cors());
 
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Harami12',
-  database: 'alumni_db',
+  host: 'sql.freedb.tech',
+  user: 'freedb_ripunjay',
+  password: 'yTVn&$Q@6Nh6mR5',
+  database: 'freedb_alumni_db',
 });
 
 db.connect(err => {

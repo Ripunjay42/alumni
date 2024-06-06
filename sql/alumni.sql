@@ -1,4 +1,3 @@
-
 CREATE TABLE USER (
 	id int auto_increment,
     user_id VARCHAR(50) unique not null,
