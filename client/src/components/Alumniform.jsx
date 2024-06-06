@@ -29,7 +29,7 @@ export default function Alumniform({userId, setLoggedin}) {
 
   const checkAlumniExists = async () => {
     try {
-        const response = await axios.get(`http://localhost:3001/api/alumni/${userId}`);
+        const response = await axios.get(`https://alumni-server-kappa.vercel.app/api/alumni/${userId}`);
         if (response.data.exists) {
             setSubmissionSuccess(true);
         }
@@ -42,7 +42,7 @@ export default function Alumniform({userId, setLoggedin}) {
       console.log('Alumni details:', alumniInfo);
       event.preventDefault();
       try {
-        const response = await axios.post('http://localhost:3001/api/alumni', alumniInfo);
+        const response = await axios.post('https://alumni-server-kappa.vercel.app/api/alumni', alumniInfo);
         console.log('Alumni details submitted successfully:', response.data);
         setSubmissionSuccess(true);
       } catch (error) {

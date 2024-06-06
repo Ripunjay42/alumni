@@ -12,7 +12,7 @@ const LoginForm = ({setLoggedin, setAdminloggedin, setUserId}) => {
   const handleUserLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/login/user', { user_id, password });
+      const response = await axios.post('https://alumni-server-kappa.vercel.app/login/user', { user_id, password });
       console.log('User Login:', response.data);
       console.log({user_id, password});
       setLoggedin(true);
@@ -25,7 +25,7 @@ const LoginForm = ({setLoggedin, setAdminloggedin, setUserId}) => {
   const handleAdminLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/login/admin', adminlog);
+      const response = await axios.post('https://alumni-server-kappa.vercel.app/login/admin', adminlog);
       console.log('Admin Login:', response.data);
       console.log('adminlog');
       setAdminloggedin(true);
