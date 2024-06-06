@@ -3,16 +3,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
 const app = express();
 app.use(cors());
 
 
+dotenv.config();
+
 const db = mysql.createConnection({
-  host: 'process.env.MYSQL_ADDON_HOST',
-  user: 'proces.env.MYSQL_ADDON_USER',
-  password: 'process.env.MYSQL_ADDON_PASSWORD',
-  database: 'process.env.MYSQL_ADDON_DB',
+  host: process.env.MYSQL_ADDON_HOST,
+  user: process.env.MYSQL_ADDON_USER,
+  password: process.env.MYSQL_ADDON_PASSWORD,
+  database: process.env.MYSQL_ADDON_DB,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
