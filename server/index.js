@@ -9,10 +9,13 @@ app.use(cors());
 
 
 const db = mysql.createConnection({
-  host: 'sql.freedb.tech',
-  user: 'freedb_ripunjay',
-  password: 'yTVn&$Q@6Nh6mR5',
-  database: 'freedb_alumni_db',
+  host: 'process.env.DB_HOST',
+  user: 'proces.env.DB_USER',
+  password: 'process.env.DB_PASS',
+  database: 'process.env.DB_NAME',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 db.connect(err => {
