@@ -40,27 +40,27 @@ export default function News() {
           </p>
         </motion.div>
         
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {newsArticles.map((article, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg"
+              className="bg-white dark:bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 p-6 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: index * 0.2 }}
             >
-              <h3 className="text-2xl font-bold text-blue-800 mb-2">
+              <h3 className="text-2xl font-bold text-blue-400 mb-2">
                 {article.title}
               </h3>
-              <p className="text-gray-600 text-sm mb-4">
+              <p className="text-white text-sm mb-4">
                 {article.date}
               </p>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-100 mb-4">
                 {article.excerpt}
               </p>
               <a 
                 href={article.link} 
-                className="text-indigo-600 hover:text-indigo-900 font-bold"
+                className="text-indigo-300 hover:text-indigo-500 font-bold"
               >
                 Read More
               </a>
