@@ -23,10 +23,10 @@ function App() {
     <Router>
       <div className="App ">
       <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 50 }).map((_, i) => (
+        {Array.from({ length: 20 }).map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-white rounded-full"
+            className="absolute w-1 h-1 bg-white rounded-full"
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
@@ -39,10 +39,10 @@ function App() {
               scale: [0.5, 1, 0.5]
             }}
             transition={{
-              duration: Math.random() * 5 + 2,
+              duration: Math.random() * 3 + 2,
               repeat: Infinity,
               repeatType: "mirror",
-              delay: Math.random() * 5
+              delay: Math.random() * 3
             }}
           />
         ))}

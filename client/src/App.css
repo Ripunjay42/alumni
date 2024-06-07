@@ -38,7 +38,7 @@
 } */
 
 .App{
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(images/bg.png) no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(images/bg.jpg) no-repeat center center;
   background-size: cover;
   position: relative;
   overflow-y: hidden;
@@ -67,7 +67,7 @@ html {
 
 @media (max-width: 768px) {
   .App {
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(images/bg.png) no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(images/bg.jpg) no-repeat center center;
     background-size: cover;
     overflow-y: auto; /* Enable vertical scrolling if necessary */
   }
