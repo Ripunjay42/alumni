@@ -10,6 +10,9 @@ export default function Contact() {
     message: ''
   });
 
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState(''); // 'success' or 'error'
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,28 +23,47 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     emailjs.send(
       'service_ppggetc', // replace with your EmailJS Service ID
       'template_369nstg', // replace with your EmailJS Template ID
       formData,
       'eZlX0ZPyVjb0fuMm-' // replace with your EmailJS User ID
     ).then((result) => {
-        alert('Message sent successfully!');
-      }, (error) => {
-        alert('An error occurred, please try again.');
-      });
+        setMessage('Message sent successfully!');
+        setMessageType('success');
 
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+        // Clear the form fields after a successful message
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+
+        // Clear the message after 3 seconds
+        setTimeout(() => {
+          setMessage('');
+        }, 3000);
+      }, (error) => {
+        setMessage('An error occurred, please try again.');
+        setMessageType('error');
+
+        // Clear the message after 3 seconds
+        setTimeout(() => {
+          setMessage('');
+        }, 3000);
+      });
   };
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-transparent py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white dark:bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 p-8 rounded-lg shadow-lg">
+      <div className="max-w-md w-full space-y-8 bg-transparent p-8 rounded-lg shadow-lg"
+           style={{
+              border: '1px solid rgba(0, 255, 255, 0.7)', // Neon border effect
+              boxShadow: '0 0 6px rgba(0, 255, 255, 0.7)', // Neon effect
+              backdropFilter: 'blur(6px)', // Background blur effect
+              borderRadius: '10px' // Consistent border radius
+           }}>
         <motion.div
           className="text-center"
           initial={{ opacity: 0 }}
@@ -51,10 +73,11 @@ export default function Contact() {
           <h2 className="mt-6 text-3xl font-extrabold text-green-400">
             Contact Us
           </h2>
-          <p className="mt-2 text-sm text-red-600">
+          <p className="mt-2 text-sm text-red-400 font-bold">
             We'd love to hear from you!
           </p>
         </motion.div>
+
         <motion.form
           className="mt-8 space-y-6"
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +95,7 @@ export default function Contact() {
                 name="name"
                 type="text"
                 required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-md relative block w-full px-3 py-2 bg-transparent border border-gray-300 placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
@@ -88,7 +111,7 @@ export default function Contact() {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-md relative block w-full px-3 py-2 bg-transparent border border-gray-300 placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
                 value={formData.email}
                 onChange={handleChange}
@@ -103,7 +126,7 @@ export default function Contact() {
                 name="message"
                 rows="4"
                 required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-md relative block w-full px-3 py-2 bg-transparent border border-gray-300 placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Your message"
                 value={formData.message}
                 onChange={handleChange}
@@ -121,6 +144,16 @@ export default function Contact() {
               Send Message
             </motion.button>
           </div>
+
+          {message && (
+            <div
+              className={`mt-4 text-center text-lg font-semibold ${
+                messageType === 'success' ? 'text-green-400' : 'text-red-600'
+              }`}
+            >
+              {message}
+            </div>
+          )}
         </motion.form>
 
         <motion.div

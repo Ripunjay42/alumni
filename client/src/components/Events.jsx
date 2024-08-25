@@ -11,7 +11,7 @@ const Events = () => {
         const response = await axios.get('https://alumni-server-kappa.vercel.app/api/events');
         setEvents(response.data);
       } catch (error) {
-        console.error('Error fetching alumni data:', error);
+        console.error('Error fetching events:', error);
       }
     };
 
@@ -27,8 +27,8 @@ const Events = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen overflow-hidden ">
-      <div className="container mx-auto p-4 relative max-w-3xl">
+    <div className="flex justify-center items-center h-screen overflow-hidden">
+      <div className="container mx-auto p-4 relative max-w-5xl">
         <h1 className="text-4xl font-bold mb-8 text-center text-green-400">Upcoming Events</h1>
         <div className="flex items-center relative">
           <button
@@ -45,7 +45,13 @@ const Events = () => {
             {events.map(event => (
               <div
                 key={event.id}
-                className="min-w-[290px] bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-4xl"
+                className="min-w-[290px] bg-transparent ml-3 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-4xl"
+                style={{
+                  backgroundColor: 'transparent', // Semi-transparent background
+                  border: '1px solid transparent',
+                  boxShadow: '0 0 6px rgba(0, 255, 255, 0.7)', // Neon border effect
+                  backdropFilter: 'blur(6px)',
+                }}
               >
                 <img src={event.image} alt={event.title} className="h-48 object-cover" />
                 <div className="p-4">

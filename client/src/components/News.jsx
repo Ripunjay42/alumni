@@ -25,7 +25,7 @@ const newsArticles = [
 export default function News() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center bg-transparent py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl w-full space-y-8">
+      <div className="max-w-5xl w-full space-y-8">
         <motion.div
           className="text-center"
           initial={{ opacity: 0 }}
@@ -40,11 +40,16 @@ export default function News() {
           </p>
         </motion.div>
         
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+        <div className="mt-8 h-[300px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsArticles.map((article, index) => (
             <motion.div
               key={index}
-              className="bg-white dark:bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 p-6 rounded-lg shadow-lg"
+              className="bg-transparent p-6 rounded-lg shadow-lg"
+              style={{
+                border: '1px solid transparent',
+                boxShadow: '0 0 6px rgba(0, 255, 255, 0.7)', // Neon border effect
+                backdropFilter: 'blur(6px)',
+              }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: index * 0.2 }}
