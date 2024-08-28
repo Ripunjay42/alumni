@@ -5,6 +5,7 @@ const AlumniList = () => {
   const [alumniData, setAlumniData] = useState([]);
   const [selectedAlumni, setSelectedAlumni] = useState(null);
   const [alumniDetails, setAlumniDetails] = useState(null);
+  const [loading, setLoading] = useState(true); // Loading state
   const scrollContainerRef = useRef(null);
 
   useEffect(() => {
@@ -14,6 +15,8 @@ const AlumniList = () => {
         setAlumniData(response.data);
       } catch (error) {
         console.error('Error fetching alumni data:', error);
+      } finally {
+        setLoading(false); // Set loading to false after data is fetched
       }
     };
 
@@ -49,57 +52,61 @@ const AlumniList = () => {
 
   return (
     <div className="flex justify-center items-center h-screen overflow-hidden">
-      <div className="container mx-auto p-4 relative max-w-5xl">
-        <h1 className="text-4xl font-bold mb-8 text-center text-green-400">Our Alumni's</h1>
-        <div className="flex items-center relative">
-          <button
-            onClick={scrollLeft}
-            className="absolute left-0 z-10 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 transition"
-          >
-            &#8592;
-          </button>
-          <div
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto space-x-4 py-6 scrollbar-hide"
-            style={{ scrollBehavior: 'smooth', maxWidth: '100%' }}
-          >
-            {alumniData.map((alumni, index) => (
-              <div
-                key={index}
-                className="min-w-[370px] h-[300px] ml-3 mr-2 bg-opacity-20 bg-transparent dark:bg-opacity-20  rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105"
-                style={{ 
-                  border: '1px solid transparent',
-                  boxShadow: '0 0 6px rgba(0, 255, 255, 0.7)',
-                  backdropFilter: 'blur(6px)' // Optional: Adds blur effect to background
-                }}
-              >
-                <div className="px-5 py-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="text-sm">
-                        <p className="text-gray-900 dark:text-blue-400 leading-none text-xl">{alumni.name}</p>
-                        <p className="text-gray-600 dark:text-gray-200">{alumni.course}, Graduated at {alumni.graduation_date}</p><br/><br/>
-                        <button
-                          className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
-                          onClick={() => handleViewProfile(alumni.user_id)}
-                        >
-                          View Profile
-                        </button>
+      {loading ? (
+        <div className="text-white text-2xl">Loading...</div> // Display loading message
+      ) : (
+        <div className="container mx-auto p-4 relative max-w-5xl">
+          <h1 className="text-4xl font-bold mb-8 text-center text-green-400">Our Alumni's</h1>
+          <div className="flex items-center relative">
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 z-10 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 transition"
+            >
+              &#8592;
+            </button>
+            <div
+              ref={scrollContainerRef}
+              className="flex overflow-x-auto space-x-4 py-6 scrollbar-hide"
+              style={{ scrollBehavior: 'smooth', maxWidth: '100%' }}
+            >
+              {alumniData.map((alumni, index) => (
+                <div
+                  key={index}
+                  className="min-w-[370px] h-[300px] ml-3 mr-2 bg-opacity-20 bg-transparent dark:bg-opacity-20  rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105"
+                  style={{ 
+                    border: '1px solid transparent',
+                    boxShadow: '0 0 6px rgba(0, 255, 255, 0.7)',
+                    backdropFilter: 'blur(6px)' // Optional: Adds blur effect to background
+                  }}
+                >
+                  <div className="px-5 py-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="text-sm">
+                          <p className="text-gray-900 dark:text-blue-400 leading-none text-xl">{alumni.name}</p>
+                          <p className="text-gray-600 dark:text-gray-200">{alumni.course}, Graduated at {alumni.graduation_date}</p><br/><br/>
+                          <button
+                            className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
+                            onClick={() => handleViewProfile(alumni.user_id)}
+                          >
+                            View Profile
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 z-10 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 transition"
+            >
+              &#8594;
+            </button>
           </div>
-          <button
-            onClick={scrollRight}
-            className="absolute right-0 z-10 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 transition"
-          >
-            &#8594;
-          </button>
         </div>
-      </div>
+      )}
 
       {/* Popup */}
       {selectedAlumni && alumniDetails && (
